@@ -7,8 +7,10 @@ Item::Item(Category* category, const std::string& itemName) : ParentClass(itemNa
     // this->ID = category->getGlobalID();// common ID for all of objects - WORKS
     this->ID = gItemID;
     this->Name = itemName;
-    this->cat = category;
-    this->cat->addItem(this);
+    this->itemCategory = category;
+    
+    this->itemCategory->addItem(this);
+    
     itemList.insert(this);
 }
 
@@ -25,19 +27,19 @@ int Item::getUnicID() const {
     return classUnicID;
 }
 
-void Item::linkToOrder(const std::string& ordName) {
-    this->usedOrders.insert(ordName);
+void Item::linkToOrder(Order* order) {
+    this->linkedOrders.insert(order);
 }
 
-void Item::getUsedOrders() {
-    std::set<std::string>::iterator it = this->usedOrders.begin();
+void Item::getLinkedOrders() {
+    std::set<Order*>::iterator it = this->linkedOrders.begin();
     
-    if ( it == this->usedOrders.end() ) {
+    if ( it == this->linkedOrders.end() ) {
         std::cout << "+++++++++++++++ Oops! This ITEM has not used yet!" << std::endl;
     } else {
         std::cout << "======= Orders where Item [ " << *this << " } was used:=======" << std::endl;
-        for ( ; it != this->usedOrders.end(); it++ ) {
-            std::cout << *it << std::endl;
+        for ( ; it != this->linkedOrders.end(); it++ ) {
+            std::cout << **it << std::endl;
         }
         std::cout << "======================================================================" << std::endl;
     }

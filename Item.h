@@ -1,14 +1,16 @@
 #ifndef ITEM_H
 #define ITEM_H
 #include "Category.h"
+#include "Order.h"
 #include "ParentClass.h"
 
 class Category;
+class Order;
 
 class Item : public ParentClass {
     private:
-        Category* cat;// maybe not necessary 
-        std::set<std::string> usedOrders;
+        Category* itemCategory;
+        std::set<Order*> linkedOrders;
         
     public:
         Item(Category* category, const std::string& itemName);
@@ -18,8 +20,8 @@ class Item : public ParentClass {
         
         virtual int getUnicID() const;
         
-        void linkToOrder(const std::string& ordName);
-        void getUsedOrders();
+        void linkToOrder(Order* order);
+        void getLinkedOrders();
         
         static int gItemID;
         static std::set<ParentClass*> itemList;

@@ -11,7 +11,9 @@ Order::Order(Customer* customer, Item* item, const std::string& ordName) : Paren
     this->orderedItems = new std::map<Item*, int>();
     
     this->addItem(item);
+    
     customer->addOrder(this);
+    item->linkToOrder(this);
 }
 
 Order::~Order() {
@@ -33,7 +35,7 @@ void Order::addItem(Item* item) {
     }
     this->orderedItems->at(item) += 1;
     
-    item->linkToOrder(this->Name); // orderName where the item was added MAYBE NOT NEEDED!
+    item->linkToOrder(this);// maybe delete thisorder when item will be ecompletely removed from it
 }
 
 void Order::deleteItem(Item* item) {
