@@ -10,7 +10,7 @@ int main() {
     // p1->getObjList();
     // std::cout << "=====================================" << std::endl;
     // std::cout << "-----------------------------------" << std::endl;
-    std::cout << *p1 << std::endl;
+    // std::cout << *p1 << std::endl;
     std::cout << "-----------------------------------" << std::endl;
     Item* i1 = new Item(p1, "Mi4");
     Item* i2 = new Item(p1, "Mi9");
@@ -34,19 +34,21 @@ int main() {
     Order* o2 = new Order(c1, i5, "Bingo order");
     Order* o3 = new Order(new Customer("Major"), i4, "Last order");
     
-    // o1->addItem(i1);
-    // o1->addItem(i3);
-    i1->getUsedOrders();
-    i4->getUsedOrders();
+    o1->addItem(i1);
+    o1->addItem(i1);
+    o1->addItem(i4);
+    o1->deleteItem(i4);
+    // i1->getUsedOrders();
+    // i4->getUsedOrders();
     
-    // std::cout << "-----------------------------------" << std::endl;
-    // o1->getItemList();
-    // std::cout << "-----------------------------------" << std::endl;
+    std::cout << "-----------------------------------" << std::endl;
+    o1->getItemList();
+    std::cout << "-----------------------------------" << std::endl;
     
     // o1->deleteItem(i1);
     
     
-    o1->getObjList();
+    // o1->getObjList();
     // std::cout << "-----------------------------------" << std::endl;
     // p1->getCatList();
     // std::cout << "-----------------------------------" << std::endl;
@@ -88,7 +90,7 @@ int main() {
     delete c1;
     delete o1;
     delete o2;
-    delete o3;
+    // delete o3;
     
     return 0;
 }

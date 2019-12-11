@@ -11,7 +11,7 @@ class Item;
 class Order : public ParentClass {
     private:
         Customer* ordCustomer;
-        std::set<Item*>* ordItem;
+        std::map<Item*, int>* orderedItems;
         
     public:
         Order(Customer* customer, Item* item, const std::string& ordName = "Init_order");
@@ -28,8 +28,6 @@ class Order : public ParentClass {
         const std::string& getCustomer() const;
         
         void getItemList();
-        
-        // void getOrderList();// reconsider and maybe remove at all
         
         static int gOrderID;
         static std::set<Order*> recordList;

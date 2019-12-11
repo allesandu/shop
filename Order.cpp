@@ -8,10 +8,9 @@ Order::Order(Customer* customer, Item* item, const std::string& ordName) : Paren
     this->ID = gOrderID;
     this->Name = ordName;
     this->ordCustomer = customer;
-    this->ordItem = new std::set<Item*>();
+    this->orderedItems = new std::map<Item*, int>();
     
     this->addItem(item);
-    // recordList.insert(this);// reconsider and maybe remove at all
     
     orderList.insert(this);
 }
@@ -21,7 +20,7 @@ Order::~Order() {
 }
 
 const std::string& Order::getName() const {
-    std::cout << "{class <Order>}";
+    // std::cout << "{class <Order>}";
     return this->Name;
 }
 
@@ -30,12 +29,16 @@ int Order::getUnicID() const {
 }
 
 void Order::addItem(Item* item) {
-    this->ordItem->insert(item);
-    item->linkToOrder(this->getName()); // orderName where the item was added
+    if ( this->orderedItems->find(item) == this->orderedItems->end() ) {
+        this->orderedItems->insert(std::pair<Item*, int>(item, 0));
+    }
+    this->orderedItems->at(item) += 1;
+    
+    item->linkToOrder(this->Name); // orderName where the item was added
 }
 
 void Order::deleteItem(Item* item) {
-    this->ordItem->erase(item);
+    this->orderedItems->erase(item);
     // maybe delete order name from list in item
 }
 
@@ -48,28 +51,17 @@ const std::string& Order::getCustomer() const {
 }
 
 void Order::getItemList() {
-    std::set<Item*>::iterator it;
+    std::cout << "======= Item List MAP ++++++++" << std::endl;
+    std::map<Item*, int>::iterator it = this->orderedItems->begin();
     
-    for ( it = this->ordItem->begin(); it != this->ordItem->end(); it++ ) {
-        std::cout << "Cust. <" << this->getCustomer() << ">";
-        std::cout << " ord. [" << this->getName() << "]";
-        std::cout << " with: " << **it << std::endl;
+    for ( ; it != this->orderedItems->end(); it++ ) {
+        std::cout << "item = " << it->first->getName();
+        std::cout << " amount = " << it->second << std::endl;
     }
+    std::cout << "++++++++++++++++++++++++++++++" << std::endl;
 }
 
-// void Order::getOrderList() { // Ne sovsem chto nujno !!
-//     std::cout << "============================== MAP INFO <class Order> =============================" << std::endl;
-    
-//     std::set<Order*>::iterator it;
-    
-//     for ( it = recordList.begin(); it != recordList.end(); it++ ) {
-//         std::cout << *((*it)->getOrderCustomer()) << std::endl;
-//     }
-// }
-
 int Order::gOrderID = 0;
-
-// std::set<Order*> Order::recordList;// = new std::set<Order*>(); // Ne sovsem chto nujno !!
 
 std::set<ParentClass*> Order::orderList;
 

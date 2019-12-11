@@ -16,7 +16,7 @@ Customer::~Customer() {
 }
 
 const std::string& Customer::getName() const {
-    std::cout << "{class <Customer>}";
+    // std::cout << "{class <Customer>}";
     return this->Name;
 }
 

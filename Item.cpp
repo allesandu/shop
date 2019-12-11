@@ -17,7 +17,7 @@ Item::~Item() {
 }
 
 const std::string& Item::getName() const {
-    std::cout << "{class <Item>}";
+    // std::cout << "{class <Item>}";
     return this->Name;
 }
 
