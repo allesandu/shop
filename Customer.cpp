@@ -7,12 +7,12 @@ Customer::Customer(const std::string& custName) : ParentClass(custName) {
     
     this->ID = gCustlID;
     this->Name = custName;
-    this->orderList = new std::map<int, Order*>();
+    this->ordersList = new std::set<Order*>();
 }
 
 Customer::~Customer() {
     // std::cout << "Cust desrt []" << std::endl;
-    delete this->orderList;
+    delete this->ordersList; // reconsider
 }
 
 const std::string& Customer::getName() const {
@@ -21,20 +21,24 @@ const std::string& Customer::getName() const {
 }
 
 void Customer::addOrder(Order* order) {
-    this->orderList->insert(std::pair<int, Order*>(order->getID(), order));
+    this->ordersList->insert(order);
 }
+
 void Customer::getOrderList() {
-    std::map<int, Order*>::iterator it = this->orderList->begin();
+    std::cout << "+++ ======= ORDER List SET ====== +++" << std::endl;
     
-    if ( it == orderList->end() ) {
-        std::cout << "+++++++++++++++ Oops! No one ORDER yet" << std::endl;
+    std::set<Order*>::iterator it = this->ordersList->begin();
+    
+    if ( it == this->ordersList->end() ) {
+        std::cout << "I N F O   !!! No one ORDER created !!!" << std::endl;
     } else {
-        for ( ; it != this->orderList->end(); it++ ) {
-            std::cout << "Cust <" << this->getName();
-            std::cout << "> : buy " << it->first;
-            std::cout << " and " << *(it->second);
+        for ( ; it != this->ordersList->end(); it++ ) {
+            // std::cout << "o r d e r : " << (*it)->getName() << std::endl;// show only name
+            std::cout << "o r d e r : " << **it << std::endl;// operator<< overloaded
         }
     }
+    
+    std::cout << "+++ =================================== +++" << std::endl;
 }
 
 int Customer::getUnicID() const {

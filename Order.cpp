@@ -7,12 +7,11 @@ Order::Order(Customer* customer, Item* item, const std::string& ordName) : Paren
     
     this->ID = gOrderID;
     this->Name = ordName;
-    this->ordCustomer = customer;
+    this->newClient = customer;
     this->orderedItems = new std::map<Item*, int>();
     
     this->addItem(item);
-    
-    orderList.insert(this);
+    customer->addOrder(this);
 }
 
 Order::~Order() {
@@ -34,20 +33,27 @@ void Order::addItem(Item* item) {
     }
     this->orderedItems->at(item) += 1;
     
-    item->linkToOrder(this->Name); // orderName where the item was added
+    item->linkToOrder(this->Name); // orderName where the item was added MAYBE NOT NEEDED!
 }
 
 void Order::deleteItem(Item* item) {
-    this->orderedItems->erase(item);
-    // maybe delete order name from list in item
+    std::map<Item*, int>::iterator it = this->orderedItems->find(item);
+    
+    if ( it != this->orderedItems->end() ) {
+        if ( it->second == 1 ) {
+            this->orderedItems->erase(item);
+        } else {
+            this->orderedItems->at(item) -= 1;
+        }
+    }
 }
 
 Customer* Order::getOrderCustomer() {// maybe not necessary 
-    return this->ordCustomer;
+    return this->newClient;
 }
 
 const std::string& Order::getCustomer() const {
-    return this->ordCustomer->getName();
+    return this->newClient->getName();
 }
 
 void Order::getItemList() {
@@ -62,15 +68,3 @@ void Order::getItemList() {
 }
 
 int Order::gOrderID = 0;
-
-std::set<ParentClass*> Order::orderList;
-
-void Order::getOrderList() {
-    std::set<ParentClass*>::iterator it;
-    
-    std::cout << "==================== Orders List <class Order> ====================" << std::endl;
-    for ( it = orderList.begin(); it != orderList.end(); it++ ) {
-        std::cout << **it << std::endl;
-    }
-    std::cout << "===================================================================" << std::endl;
-}

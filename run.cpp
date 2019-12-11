@@ -3,7 +3,6 @@
 #include "Category.h"
 #include "Order.h"
 #include "Item.h"
-#include "SaleDB.h"
 
 int main() {
     Category* p1 = new Category("SmatPhones");
@@ -37,13 +36,16 @@ int main() {
     o1->addItem(i1);
     o1->addItem(i1);
     o1->addItem(i4);
-    o1->deleteItem(i4);
+    
+    // o1->deleteItem(i4);
+    // o1->deleteItem(i4);
+    // o1->deleteItem(i4);
     // i1->getUsedOrders();
     // i4->getUsedOrders();
     
-    std::cout << "-----------------------------------" << std::endl;
-    o1->getItemList();
-    std::cout << "-----------------------------------" << std::endl;
+    // std::cout << "-----------------------------------" << std::endl;
+    // o1->getItemList();
+    // std::cout << "-----------------------------------" << std::endl;
     
     // o1->deleteItem(i1);
     
@@ -66,10 +68,10 @@ int main() {
     // c1->addOrder(o1);
     // c1->addOrder(o2);
     
-    // std::cout << "-----------------------------------" << std::endl;
-    // c1->getOrderList();
+    std::cout << "-----------------------------------" << std::endl;
+    c1->getOrderList();
     // c1->deleteItem(o1);
-    // std::cout << "-----------------------------------" << std::endl;
+    std::cout << "-----------------------------------" << std::endl;
     // c1->getOrderList();
     // sd1->addRecord();
     // sd1->addRecord(1, p2);

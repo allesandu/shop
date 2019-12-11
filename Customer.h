@@ -9,7 +9,7 @@ class Order;
 
 class Customer : public ParentClass {
     private:
-        std::map<int, Order*>* orderList;
+        std::set<Order*>* ordersList;
         
     public:
         Customer(const std::string& custName = "Init_customer0");

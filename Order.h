@@ -10,7 +10,7 @@ class Item;
 
 class Order : public ParentClass {
     private:
-        Customer* ordCustomer;
+        Customer* newClient;
         std::map<Item*, int>* orderedItems;
         
     public:
@@ -32,8 +32,6 @@ class Order : public ParentClass {
         static int gOrderID;
         static std::set<Order*> recordList;
         
-        static std::set<ParentClass*> orderList;
-        static void getOrderList();
         static const int classUnicID = 300;
 };
 
