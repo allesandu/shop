@@ -11,7 +11,7 @@ class Category : public ParentClass {
         std::set<Item*>* itemList;
         
     public:
-        Category(const std::string& cName = "Empty_Cat");
+        Category(const std::string& cName = "initialCategory");
         virtual ~Category();
         
         virtual const std::string& getName() const;
@@ -25,6 +25,7 @@ class Category : public ParentClass {
         static int gCatlID;
         static std::set<ParentClass*> catList;
         static void getCatList();
+        
         static const int classUnicID = 100;
 };
 

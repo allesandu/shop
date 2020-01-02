@@ -1,6 +1,7 @@
 #ifndef ORDER_H
 #define ORDER_H
 #include <set>
+#include <map>
 #include "Customer.h"
 #include "Item.h"
 #include "ParentClass.h"
@@ -14,7 +15,7 @@ class Order : public ParentClass {
         std::map<Item*, int>* orderedItems;
         
     public:
-        Order(Customer* customer, Item* item, const std::string& ordName = "Init_order");
+        Order(Customer* customer, Item* item, const std::string& ordName = "initialOrder");
         virtual ~Order();
         
         virtual const std::string& getName() const;
@@ -24,13 +25,13 @@ class Order : public ParentClass {
         void addItem(Item* item);
         void deleteItem(Item* item);
         
-        Customer* getOrderCustomer();// maybe not necessary 
         const std::string& getCustomer() const;
         
         void getItemList();
         
         static int gOrderID;
-        static std::set<Order*> recordList;
+        static std::set<ParentClass*> orderList;
+        static void getOrderList();
         
         static const int classUnicID = 300;
 };

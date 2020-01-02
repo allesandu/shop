@@ -2,7 +2,7 @@
 #define CUSTOMER_H
 
 #include "ParentClass.h"
-#include <map>
+#include <set>
 #include "Order.h"
 
 class Order;
@@ -12,17 +12,20 @@ class Customer : public ParentClass {
         std::set<Order*>* ordersList;
         
     public:
-        Customer(const std::string& custName = "Init_customer0");
+        Customer(const std::string& custName = "initialCustomer");
         virtual ~Customer();
         
         virtual const std::string& getName() const;
         
         void addOrder(Order* order);
-        void getOrderList();
+        void getCustOrders();
         
         virtual int getUnicID() const;
         
         static int gCustlID;
+        static std::set<ParentClass*> customerList;
+        static void getCustomerList();
+        
         static const int classUnicID = 400;
 };
 

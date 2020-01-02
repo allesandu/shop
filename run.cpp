@@ -28,6 +28,7 @@ int main() {
     // std::cout << "====================================\n\n\n" << std::endl;
     
     Customer* c1 = new Customer("TarasKo");
+    Customer* c2 = new Customer("Nata");
     
     Order* o1 = new Order(c1, i4, "First ordero");
     Order* o2 = new Order(c1, i5, "Bingo order");
@@ -41,7 +42,7 @@ int main() {
     // o1->deleteItem(i4);
     // o1->deleteItem(i4);
     // i1->getLinkedOrders();
-    i4->getLinkedOrders();
+    // i4->getLinkedOrders();
     
     // std::cout << "-----------------------------------" << std::endl;
     // o1->getItemList();
@@ -61,7 +62,7 @@ int main() {
     // o1->getObjList();
     
     // std::cout << "-----------------------------------" << std::endl;
-    // o2->getOrderList();
+    // o2->getCustOrders();
     // std::cout << "-----------------------------------" << std::endl;
     // o1->getItemList();
     
@@ -69,8 +70,10 @@ int main() {
     // c1->addOrder(o2);
     
     std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
-    c1->getOrderList();
+    c1->getCustOrders();
     // c1->deleteItem(o1);
+    o3->getOrderList();
+    c1->getCustomerList();
     std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
     c1->getObjList();
     
@@ -82,6 +85,8 @@ int main() {
     delete i5;
     
     delete c1;
+    delete c2;
+    
     delete o1;
     delete o2;
     delete o3;

@@ -7,6 +7,8 @@ Customer::Customer(const std::string& custName) : ParentClass(custName) {
     this->ID = gCustlID;
     this->Name = custName;
     this->ordersList = new std::set<Order*>();
+    
+    customerList.insert(this);
 }
 
 Customer::~Customer() {
@@ -23,8 +25,8 @@ void Customer::addOrder(Order* order) {
     this->ordersList->insert(order);
 }
 
-void Customer::getOrderList() {
-    std::cout << "+++ ======= ORDER List SET ====== +++" << std::endl;
+void Customer::getCustOrders() {
+    std::cout << "+++ ======= Certain customer Orders List ====== +++" << std::endl;
     
     std::set<Order*>::iterator it = this->ordersList->begin();
     
@@ -45,3 +47,14 @@ int Customer::getUnicID() const {
 }
 
 int Customer::gCustlID = 0;
+
+std::set<ParentClass*> Customer::customerList;
+
+void Customer::getCustomerList() {
+    std::set<ParentClass*>::iterator it = customerList.begin();
+    std::cout << "==================== Customers List <class Customer> ====================" << std::endl;
+    for ( ; it != customerList.end(); it++ ) {
+        std::cout << **it << std::endl;
+    }
+    std::cout << "======================================================================" << std::endl;
+}

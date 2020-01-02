@@ -6,6 +6,7 @@ Category::Category(const std::string& cName) : ParentClass(cName) {
     this->ID = gCatlID;
     this->Name = cName;
     this->itemList = new std::set<Item*>();
+    
     catList.insert(this);
 }
 

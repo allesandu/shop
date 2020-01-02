@@ -8,7 +8,6 @@ Item::Item(Category* category, const std::string& itemName) : ParentClass(itemNa
     this->ID = gItemID;
     this->Name = itemName;
     this->itemCategory = category;
-    
     this->itemCategory->addItem(this);
     
     itemList.insert(this);

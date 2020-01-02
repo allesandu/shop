@@ -9,11 +9,12 @@ Order::Order(Customer* customer, Item* item, const std::string& ordName) : Paren
     this->Name = ordName;
     this->newClient = customer;
     this->orderedItems = new std::map<Item*, int>();
-    
     this->addItem(item);
     
     customer->addOrder(this);
     item->linkToOrder(this);
+    
+    orderList.insert(this);
 }
 
 Order::~Order() {
@@ -35,7 +36,7 @@ void Order::addItem(Item* item) {
     }
     this->orderedItems->at(item) += 1;
     
-    item->linkToOrder(this);// maybe delete thisorder when item will be ecompletely removed from it
+    item->linkToOrder(this);// maybe delete thisorder when item will be completely removed from it
 }
 
 void Order::deleteItem(Item* item) {
@@ -48,10 +49,6 @@ void Order::deleteItem(Item* item) {
             this->orderedItems->at(item) -= 1;
         }
     }
-}
-
-Customer* Order::getOrderCustomer() {// maybe not necessary 
-    return this->newClient;
 }
 
 const std::string& Order::getCustomer() const {
@@ -70,3 +67,15 @@ void Order::getItemList() {
 }
 
 int Order::gOrderID = 0;
+
+std::set<ParentClass*> Order::orderList;
+
+void Order::getOrderList() {
+    std::set<ParentClass*>::iterator it = orderList.begin();
+    
+    std::cout << "==================== Orders List <class Order> ====================" << std::endl;
+    for ( ; it != orderList.end(); it++ ) {
+        std::cout << **it << std::endl;
+    }
+    std::cout << "=================================================================" << std::endl;
+}

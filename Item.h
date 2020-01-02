@@ -26,6 +26,7 @@ class Item : public ParentClass {
         static int gItemID;
         static std::set<ParentClass*> itemList;
         static void getItemList();
+        
         static const int classUnicID = 200;
 };
 
