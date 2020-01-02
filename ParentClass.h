@@ -20,8 +20,8 @@ class ParentClass {
         
         static int globalID;
         static int getGlobalID();
-        static std::set<ParentClass*> objList;// overal LIST work (1 out of 3)
-        static void getObjList();// overal LIST work (2 out of 3)
+        static std::set<ParentClass*> objList;// overal LIST work (1 out of 5)
+        static void getObjList();// overal LIST work (2 out of 5)
 };
 
 std::ostream& operator<<(std::ostream& out, const ParentClass& obj);

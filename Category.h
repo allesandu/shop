@@ -28,6 +28,4 @@ class Category : public ParentClass {
         static const int classUnicID = 100;
 };
 
-// std::ostream& operator<<(std::ostream& out, const Category& obj); // ERROR multiole definition of 'operator<<(std::ostream& out, const Category& obj)'
-
 #endif // CATEGORY_H

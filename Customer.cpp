@@ -2,7 +2,6 @@
 #include "Customer.h"
 
 Customer::Customer(const std::string& custName) : ParentClass(custName) {
-// std::cout << "Cust constr done!" << std::endl;
     gCustlID += 1;
     
     this->ID = gCustlID;

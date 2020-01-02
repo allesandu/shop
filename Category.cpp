@@ -1,7 +1,6 @@
 #include "Category.h"
 
 Category::Category(const std::string& cName) : ParentClass(cName) {
-    // std::cout << "Cat constr done!" << std::endl;
     gCatlID += 1;
     
     this->ID = gCatlID;
@@ -11,7 +10,6 @@ Category::Category(const std::string& cName) : ParentClass(cName) {
 }
 
 Category::~Category() {
-    // std::cout << "Cat desrt []" << std::endl;
     // delete this->itemList; ||| FOR-om erase all of ITEMS ---- > then clear content |||
 }
 
@@ -30,13 +28,9 @@ void Category::deleteItem(Item* dItem) {
 
 void Category::getItemList() {
     std::set<Item*>::iterator it;
-    // std::map<int, Item*>::iterator it;
     
     for ( it = this->itemList->begin(); it != this->itemList->end(); it++ ) {
-        std::cout << "item: " << **it << std::endl;// DONT WORK (**it)!!! print only address throught *it
-        // std::cout << "Category <" << this->getName();
-        // std::cout << "> : with item_" << it->first;
-        // std::cout << *(it->second) << std::endl;
+        std::cout << "item: " << **it << std::endl;
     }
 }
 
@@ -58,12 +52,3 @@ void Category::getCatList() {
     
     std::cout << "======================================================================" << std::endl;
 }
-
-// std::ostream& operator<<(std::ostream& out, const ParentClass& obj) {// ERROR multiole definition of 'operator<<(std::ostream& out, const Category& obj)'
-//     out << "[class <Category>] | ";
-//     out << "obj_number: " << obj.getID();
-//     // out << "_<GlobalID=" << obj.getGlobalID();
-//     out << ": " << obj.getName() << std::endl;
-    
-//     return out;
-// }
