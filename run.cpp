@@ -5,26 +5,26 @@
 #include "Item.h"
 
 int main() {
-    Category* p1 = new Category("SmatPhones");
-    // p1->getObjList();
+    Category* cat1 = new Category("SmatPhones");
+    // cat1->getObjList();
     // std::cout << "=====================================" << std::endl;
     // std::cout << "-----------------------------------" << std::endl;
-    // std::cout << *p1 << std::endl;
-    std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
-    Item* i1 = new Item(p1, "Mi4");
-    Item* i2 = new Item(p1, "Mi9");
-    Item* i3 = new Item(p1, "Mi6");
-    Item* i4 = new Item(p1, "Mi8_Lite");
-    Item* i5 = new Item(p1, "Iphone 11 Pro");
+    // std::cout << *cat1 << std::endl;
+    // std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
+    Item* i1 = new Item(cat1, "Iphone 5S");
+    Item* i2 = new Item(cat1, "Mi9");
+    Item* i3 = new Item(cat1, "Mi6");
+    Item* i4 = new Item(cat1, "Mi8_Lite");
+    Item* i5 = new Item(cat1, "Iphone 11 Pro");
     
-    // p1->getObjList();
+    // cat1->getObjList();
     
-    // p1->getItemList();
+    // cat1->getItemList();
     
     // std::cout << "-----------------------------------" << std::endl;
     
-    // p1->deleteItem(i3);
-    // p1->getItemList();
+    // cat1->deleteItem(i3);
+    // cat1->getItemList();
     // std::cout << "====================================\n\n\n" << std::endl;
     
     Customer* c1 = new Customer("TarasKo");
@@ -53,7 +53,7 @@ int main() {
     
     // o1->getObjList();
     // std::cout << "-----------------------------------" << std::endl;
-    // p1->getCatList();
+    // cat1->getCatList();
     std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
     i1->getItemList();
     std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
@@ -77,19 +77,22 @@ int main() {
     std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
     c1->getObjList();
     
-    delete p1;
+    
+    
     delete i1;
     delete i2;
     delete i3;
     delete i4;
     delete i5;
     
-    delete c1;
-    delete c2;
-    
     delete o1;
     delete o2;
     delete o3;
+    
+    delete c1;
+    delete c2;
+    
+    delete cat1;
     
     return 0;
 }

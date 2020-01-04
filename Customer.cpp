@@ -12,8 +12,10 @@ Customer::Customer(const std::string& custName) : ParentClass(custName) {
 }
 
 Customer::~Customer() {
-    // std::cout << "Cust desrt []" << std::endl;
-    delete this->ordersList; // reconsider
+    // delete this->ordersList; // reconsider because of elimination of content!
+    
+    customerList.erase(this);
+    std::cout << "[                         Customer DESTR    ]" << std::endl;
 }
 
 const std::string& Customer::getName() const {

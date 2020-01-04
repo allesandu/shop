@@ -18,7 +18,10 @@ Order::Order(Customer* customer, Item* item, const std::string& ordName) : Paren
 }
 
 Order::~Order() {
-    // std::cout << "destr of order!" << std::endl;
+    // delete this->newClient;
+    
+    orderList.erase(this);
+    std::cout << "[                    Order DESTR    ]" << std::endl;
 }
 
 const std::string& Order::getName() const {

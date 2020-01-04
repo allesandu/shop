@@ -12,6 +12,9 @@ Category::Category(const std::string& cName) : ParentClass(cName) {
 
 Category::~Category() {
     // delete this->itemList; ||| FOR-om erase all of ITEMS ---- > then clear content |||
+    
+    catList.erase(this);
+    std::cout << "[                                   Category DESTR    ]" << std::endl;
 }
 
 const std::string& Category::getName() const {

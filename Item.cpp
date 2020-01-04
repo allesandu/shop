@@ -14,11 +14,16 @@ Item::Item(Category* category, const std::string& itemName) : ParentClass(itemNa
 }
 
 Item::~Item() {
-    // std::cout << "Cust desrt []" << std::endl;
+    std::cout << "[                    Item DESTR_start ]" << std::endl;
+    
+    // this->itemCategory->deleteItem(this);
+    // delete this->itemCategory;
+    
+    itemList.erase(this);
+    std::cout << "[                    Item DESTR_end   ]" << std::endl;
 }
 
 const std::string& Item::getName() const {
-    // std::cout << "{class <Item>}";
     return this->Name;
 }
 
