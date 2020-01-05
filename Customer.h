@@ -15,8 +15,6 @@ class Customer : public ParentClass {
         Customer(const std::string& custName = "initialCustomer");
         virtual ~Customer();
         
-        virtual const std::string& getName() const;
-        
         void addOrder(Order* order);
         void getCustOrders();
         

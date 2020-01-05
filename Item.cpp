@@ -14,17 +14,18 @@ Item::Item(Category* category, const std::string& itemName) : ParentClass(itemNa
 }
 
 Item::~Item() {
-    std::cout << "[                    Item DESTR_start ]" << std::endl;
+    std::cout << "[               Item DESTR_start ]" << std::endl;
     
-    // this->itemCategory->deleteItem(this);
-    // delete this->itemCategory;
+    this->itemCategory->deleteItem(this);
     
     itemList.erase(this);
-    std::cout << "[                    Item DESTR_end   ]" << std::endl;
-}
-
-const std::string& Item::getName() const {
-    return this->Name;
+    
+    // std::set<ParentClass*>::iterator it = itemList.begin();//HOW to implement correct?
+    // if ( it == itemList.end() ) {
+    //     delete this->itemCategory;
+    // }
+    
+    std::cout << "[               Item DESTR_end   ]" << std::endl;
 }
 
 int Item::getUnicID() const {
@@ -39,13 +40,13 @@ void Item::getLinkedOrders() {
     std::set<Order*>::iterator it = this->linkedOrders.begin();
     
     if ( it == this->linkedOrders.end() ) {
-        std::cout << "+++++++++++++++ Oops! This ITEM has not used yet!" << std::endl;
+        std::cout << "!!! This ITEM has not used yet!!!" << std::endl;
     } else {
-        std::cout << "======= Orders where Item [ " << *this << " } was used:=======" << std::endl;
+        std::cout << "=== Orders where Item = " << this->Name << " was used:===" << std::endl;
         for ( ; it != this->linkedOrders.end(); it++ ) {
             std::cout << **it << std::endl;
         }
-        std::cout << "======================================================================" << std::endl;
+        std::cout << "======================================================" << std::endl;
     }
 }
 
@@ -56,10 +57,10 @@ std::set<ParentClass*> Item::itemList;
 void Item::getItemList() {
     std::set<ParentClass*>::iterator it;
     
-    std::cout << "==================== Items List <class Item> ====================" << std::endl;
+    std::cout << "======= Items List =======" << std::endl;
     for ( it = itemList.begin(); it != itemList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
     
-    std::cout << "======================================================================" << std::endl;
+    std::cout << "==================================" << std::endl;
 }

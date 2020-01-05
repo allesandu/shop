@@ -12,15 +12,11 @@ Customer::Customer(const std::string& custName) : ParentClass(custName) {
 }
 
 Customer::~Customer() {
-    // delete this->ordersList; // reconsider because of elimination of content!
+    this->ordersList->clear();
+    delete this->ordersList;
     
     customerList.erase(this);
     std::cout << "[                         Customer DESTR    ]" << std::endl;
-}
-
-const std::string& Customer::getName() const {
-    // std::cout << "{class <Customer>}";
-    return this->Name;
 }
 
 void Customer::addOrder(Order* order) {
@@ -28,20 +24,20 @@ void Customer::addOrder(Order* order) {
 }
 
 void Customer::getCustOrders() {
-    std::cout << "+++ ======= Certain customer Orders List ====== +++" << std::endl;
+    std::cout << "======= Customer Orders List ======" << std::endl;
     
     std::set<Order*>::iterator it = this->ordersList->begin();
     
     if ( it == this->ordersList->end() ) {
-        std::cout << "I N F O   !!! No one ORDER created !!!" << std::endl;
+        std::cout << "!!! No one ORDER created !!!" << std::endl;
     } else {
         for ( ; it != this->ordersList->end(); it++ ) {
             // std::cout << "o r d e r : " << (*it)->getName() << std::endl;// show only name
-            std::cout << "o r d e r : " << **it << std::endl;// operator<< overloaded
+            std::cout << "order : " << **it << std::endl;// operator<< overloaded
         }
     }
     
-    std::cout << "+++ =================================== +++" << std::endl;
+    std::cout << "===================================" << std::endl;
 }
 
 int Customer::getUnicID() const {
@@ -54,9 +50,9 @@ std::set<ParentClass*> Customer::customerList;
 
 void Customer::getCustomerList() {
     std::set<ParentClass*>::iterator it = customerList.begin();
-    std::cout << "==================== Customers List <class Customer> ====================" << std::endl;
+    std::cout << "======= Customers List =======" << std::endl;
     for ( ; it != customerList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
-    std::cout << "======================================================================" << std::endl;
+    std::cout << "==================================" << std::endl;
 }

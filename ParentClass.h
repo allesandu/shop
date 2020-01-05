@@ -9,7 +9,7 @@ class ParentClass {
         std::string Name;
         
     public:
-        ParentClass(const std::string& name = "whom");
+        ParentClass(const std::string& name = "emptyTitle");
         
         virtual ~ParentClass();
         
@@ -20,8 +20,8 @@ class ParentClass {
         
         static int globalID;
         static int getGlobalID();
-        static std::set<ParentClass*> objList;// overal LIST work (1 out of 5)
-        static void getObjList();// overal LIST work (2 out of 5)
+        static std::set<ParentClass*> objList;
+        static void getObjList();
 };
 
 std::ostream& operator<<(std::ostream& out, const ParentClass& obj);

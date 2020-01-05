@@ -41,8 +41,8 @@ int main() {
     // o1->deleteItem(i4);
     // o1->deleteItem(i4);
     // o1->deleteItem(i4);
-    // i1->getLinkedOrders();
-    // i4->getLinkedOrders();
+    i1->getLinkedOrders();
+    i4->getLinkedOrders();
     
     // std::cout << "-----------------------------------" << std::endl;
     // o1->getItemList();

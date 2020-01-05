@@ -24,11 +24,6 @@ Order::~Order() {
     std::cout << "[                    Order DESTR    ]" << std::endl;
 }
 
-const std::string& Order::getName() const {
-    // std::cout << "{class <Order>}";
-    return this->Name;
-}
-
 int Order::getUnicID() const {
     return classUnicID;
 }
@@ -39,7 +34,7 @@ void Order::addItem(Item* item) {
     }
     this->orderedItems->at(item) += 1;
     
-    item->linkToOrder(this);// maybe delete thisorder when item will be completely removed from it
+    item->linkToOrder(this);
 }
 
 void Order::deleteItem(Item* item) {
@@ -59,14 +54,14 @@ const std::string& Order::getCustomer() const {
 }
 
 void Order::getItemList() {
-    std::cout << "======= Item List MAP ++++++++" << std::endl;
+    std::cout << "======= Ordered Items List =======" << std::endl;
     std::map<Item*, int>::iterator it = this->orderedItems->begin();
     
     for ( ; it != this->orderedItems->end(); it++ ) {
         std::cout << "item = " << it->first->getName();
         std::cout << " amount = " << it->second << std::endl;
     }
-    std::cout << "++++++++++++++++++++++++++++++" << std::endl;
+    std::cout << "==================================" << std::endl;
 }
 
 int Order::gOrderID = 0;
@@ -76,9 +71,9 @@ std::set<ParentClass*> Order::orderList;
 void Order::getOrderList() {
     std::set<ParentClass*>::iterator it = orderList.begin();
     
-    std::cout << "==================== Orders List <class Order> ====================" << std::endl;
+    std::cout << "======= Orders List =======" << std::endl;
     for ( ; it != orderList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
-    std::cout << "=================================================================" << std::endl;
+    std::cout << "==================================" << std::endl;
 }

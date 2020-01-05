@@ -11,15 +11,19 @@ Category::Category(const std::string& cName) : ParentClass(cName) {
 }
 
 Category::~Category() {
-    // delete this->itemList; ||| FOR-om erase all of ITEMS ---- > then clear content |||
+    std::cout << "[                                   Category DESTR 1(4)   ]" << std::endl;
+    this->itemList->clear();
     
+    std::cout << "[                                   Category DESTR 2(4)   ]" << std::endl;
+    std::set<Item*>::iterator it = itemList->begin();
+    if ( it == itemList->end() ) {
+        delete this->itemList;
+    }
+    
+    std::cout << "[                                   Category DESTR 3(4)   ]" << std::endl;
     catList.erase(this);
-    std::cout << "[                                   Category DESTR    ]" << std::endl;
-}
-
-const std::string& Category::getName() const {
-    std::cout << "{class <Category>}";
-    return this->Name;
+    
+    std::cout << "[                                   Category DESTR 4(4)   ]" << std::endl;
 }
 
 void Category::addItem(Item* item) {
@@ -49,10 +53,10 @@ std::set<ParentClass*> Category::catList;
 void Category::getCatList() {
     std::set<ParentClass*>::iterator it;
     
-    std::cout << "==================== Categories List <class Category> ====================" << std::endl;
+    std::cout << "======= Categories List =======" << std::endl;
     for ( it = catList.begin(); it != catList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
     
-    std::cout << "======================================================================" << std::endl;
+    std::cout << "==================================" << std::endl;
 }

@@ -18,8 +18,6 @@ class Order : public ParentClass {
         Order(Customer* customer, Item* item, const std::string& ordName = "initialOrder");
         virtual ~Order();
         
-        virtual const std::string& getName() const;
-        
         virtual int getUnicID() const;
         
         void addItem(Item* item);

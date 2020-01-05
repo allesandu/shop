@@ -16,8 +16,6 @@ class Item : public ParentClass {
         Item(Category* category, const std::string& itemName);
         virtual ~Item();
         
-        virtual const std::string& getName() const;
-        
         virtual int getUnicID() const;
         
         void linkToOrder(Order* order);

@@ -14,8 +14,6 @@ class Category : public ParentClass {
         Category(const std::string& cName = "initialCategory");
         virtual ~Category();
         
-        virtual const std::string& getName() const;
-        
         void addItem(Item* item);
         void deleteItem(Item* item);
         void getItemList();
