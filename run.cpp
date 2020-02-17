@@ -34,20 +34,29 @@ int main() {
     i1->getLinkedOrders();
     i4->getLinkedOrders();
     
-    // std::cout << "------------- ORDER----------------------" << std::endl;
-    // o1->getOrderItems();
-    // std::cout << "-----------------------------------" << std::endl;
     
-    // std::cout << "-----------------------------------" << std::endl;
+    
+    std::cout << "----------------CategoryList-------------------" << std::endl;
     cat1->getCatList();
-    i1->getItemList();
+    
+    std::cout << "-----------OrderList------------------------" << std::endl;
     o3->getOrderList();
+    
+    std::cout << "-----------CustomerList------------------------" << std::endl;
     c1->getCustomerList();
-    // std::cout << "- - - - - - - - item  - - -  - - - - - - - - - - - - - - - " << std::endl;
-    // 
-    // std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
-    // std::cout << "-----------category------------------------" << std::endl;
-    // cat2->getCategoryItems();    
+    
+    std::cout << "-----------ItemsList------------------------" << std::endl;
+    i1->getItemList();
+    
+    std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
+    std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
+    
+    std::cout << "- - - - - - - - CATEGORY - - - - - - - - - - - - - " << std::endl;
+    cat2->getCategoryItems();
+    std::cout << "- - - - - - - - ORDER - - - - - - - - - - - - - " << std::endl;
+    o1->getOrderItems();
+    std::cout << "- - - - - - - - CUSTOMER - - - - - - - - - - - - - " << std::endl;
+    c1->getCustomerOrders();
     // std::cout << "-----------------------------------" << std::endl;
     // o2->getOrderItems();
     // std::cout << "-----------------------------------" << std::endl;
@@ -55,10 +64,8 @@ int main() {
     // c1->addOrder(o1);
     // c1->addOrder(o2);
     
-    std::cout << "- - - - - - - -getCustomerOrders - - - - - - - - - - - - - " << std::endl;
-    c1->getCustomerOrders();
-    std::cout << "- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - " << std::endl;
-    // c1->getObjList();
+    std::cout << "- - - - - - - - - - - - - O B J E C T S   L I S T -  - - - - - - - - - - - - - - - " << std::endl;
+    c1->getObjList();
     
     
     delete cat1;

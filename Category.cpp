@@ -46,10 +46,9 @@ int Category::gCatlID = 0;
 std::set<ParentClass*> Category::catList;
 
 void Category::getCatList() {
-    std::set<ParentClass*>::iterator it;
+    std::set<ParentClass*>::iterator it = catList.begin();
     
-    std::cout << "======= Categories List =======" << std::endl;
-    for ( it = catList.begin(); it != catList.end(); it++ ) {
+    for ( ; it != catList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
 }

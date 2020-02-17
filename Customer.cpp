@@ -22,8 +22,6 @@ void Customer::addOrder(Order* order) {
 }
 
 void Customer::getCustomerOrders() {
-    std::cout << "======= Customer Orders List ======" << std::endl;
-    
     std::set<Order*>::iterator it = this->ordersList->begin();
     
     if ( it == this->ordersList->end() ) {
@@ -45,7 +43,7 @@ std::set<ParentClass*> Customer::customerList;
 
 void Customer::getCustomerList() {
     std::set<ParentClass*>::iterator it = customerList.begin();
-    std::cout << "======= Customers List =======" << std::endl;
+    
     for ( ; it != customerList.end(); it++ ) {
         std::cout << **it << std::endl;
     }

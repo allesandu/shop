@@ -29,9 +29,9 @@ void Item::getLinkedOrders() {
     std::set<Order*>::iterator it = this->linkedOrders.begin();
     
     if ( it == this->linkedOrders.end() ) {
-        std::cout << "The ITEM has not used yet!" << std::endl;
+        std::cout << "The item has not used yet!" << std::endl;
     } else {
-        std::cout << "=== Orders list where Item = " << this->Name << " was used:" << std::endl;
+        std::cout << "Orders list where the item = " << this->Name << " was used:" << std::endl;
         for ( ; it != this->linkedOrders.end(); it++ ) {
             std::cout << (*it)->getName() << std::endl;
         }
@@ -43,10 +43,9 @@ int Item::gItemID = 0;
 std::set<ParentClass*> Item::itemList;
 
 void Item::getItemList() {
-    std::set<ParentClass*>::iterator it;
+    std::set<ParentClass*>::iterator it = itemList.begin();
     
-    std::cout << "======= Items List =======" << std::endl;
-    for ( it = itemList.begin(); it != itemList.end(); it++ ) {
+    for ( ; it != itemList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
 }

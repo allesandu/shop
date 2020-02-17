@@ -51,8 +51,7 @@ const std::string& Order::getCustomer() const {
 }
 
 void Order::getOrderItems() {
-    std::cout << "======= Ordered Items List =======" << std::endl;
-    std::map<Item*, int>::iterator it = this->orderedItems->begin();
+        std::map<Item*, int>::iterator it = this->orderedItems->begin();
     
     for ( ; it != this->orderedItems->end(); it++ ) {
         std::cout << "item = " << it->first->getName();
@@ -67,7 +66,6 @@ std::set<ParentClass*> Order::orderList;
 void Order::getOrderList() {
     std::set<ParentClass*>::iterator it = orderList.begin();
     
-    std::cout << "======= Orders List =======" << std::endl;
     for ( ; it != orderList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
