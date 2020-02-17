@@ -25,7 +25,7 @@ class Order : public ParentClass {
         
         const std::string& getCustomer() const;
         
-        void getItemList();
+        void getOrderItems();
         
         static int gOrderID;
         static std::set<ParentClass*> orderList;

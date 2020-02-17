@@ -11,19 +11,14 @@ Category::Category(const std::string& cName) : ParentClass(cName) {
 }
 
 Category::~Category() {
-    std::cout << "[                                   Category DESTR 1(4)   ]" << std::endl;
     this->itemList->clear();
     
-    std::cout << "[                                   Category DESTR 2(4)   ]" << std::endl;
     std::set<Item*>::iterator it = itemList->begin();
     if ( it == itemList->end() ) {
         delete this->itemList;
     }
-    
-    std::cout << "[                                   Category DESTR 3(4)   ]" << std::endl;
+
     catList.erase(this);
-    
-    std::cout << "[                                   Category DESTR 4(4)   ]" << std::endl;
 }
 
 void Category::addItem(Item* item) {
@@ -34,7 +29,7 @@ void Category::deleteItem(Item* dItem) {
     this->itemList->erase(dItem);
 }
 
-void Category::getItemList() {
+void Category::getCategoryItems() {
     std::set<Item*>::iterator it;
     
     for ( it = this->itemList->begin(); it != this->itemList->end(); it++ ) {
@@ -57,6 +52,4 @@ void Category::getCatList() {
     for ( it = catList.begin(); it != catList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
-    
-    std::cout << "==================================" << std::endl;
 }

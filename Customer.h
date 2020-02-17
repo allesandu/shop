@@ -16,7 +16,7 @@ class Customer : public ParentClass {
         virtual ~Customer();
         
         void addOrder(Order* order);
-        void getCustOrders();
+        void getCustomerOrders();
         
         virtual int getUnicID() const;
         

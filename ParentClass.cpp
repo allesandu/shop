@@ -8,9 +8,7 @@ ParentClass::ParentClass(const std::string& name) {
             this->ID = globalID;
         }
 
-ParentClass::~ParentClass() {
-
-}
+ParentClass::~ParentClass() {};
 
 int ParentClass::getID() const {
     return this->ID;
@@ -33,18 +31,14 @@ std::set<ParentClass*> ParentClass::objList;
 void ParentClass::getObjList() {
     std::set<ParentClass*>::iterator it;
     
-    std::cout << "======= Global objects list =======" << std::endl;
-    
     for ( it = objList.begin(); it != objList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
-    
-    std::cout << "==================================" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const ParentClass& obj) {
-    out << "[classID = " << obj.getUnicID() << "] ";
-    out << obj.getName() << std::endl;;
+    out << obj.getName();
+    out << " [classID=" << obj.getUnicID() << "]" << std::endl;
     
     return out;
 }

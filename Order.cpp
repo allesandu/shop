@@ -18,10 +18,7 @@ Order::Order(Customer* customer, Item* item, const std::string& ordName) : Paren
 }
 
 Order::~Order() {
-    // delete this->newClient;
-    
     orderList.erase(this);
-    std::cout << "[                    Order DESTR    ]" << std::endl;
 }
 
 int Order::getUnicID() const {
@@ -53,7 +50,7 @@ const std::string& Order::getCustomer() const {
     return this->newClient->getName();
 }
 
-void Order::getItemList() {
+void Order::getOrderItems() {
     std::cout << "======= Ordered Items List =======" << std::endl;
     std::map<Item*, int>::iterator it = this->orderedItems->begin();
     
@@ -61,7 +58,6 @@ void Order::getItemList() {
         std::cout << "item = " << it->first->getName();
         std::cout << " amount = " << it->second << std::endl;
     }
-    std::cout << "==================================" << std::endl;
 }
 
 int Order::gOrderID = 0;
@@ -75,5 +71,4 @@ void Order::getOrderList() {
     for ( ; it != orderList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
-    std::cout << "==================================" << std::endl;
 }

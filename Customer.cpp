@@ -14,30 +14,25 @@ Customer::Customer(const std::string& custName) : ParentClass(custName) {
 Customer::~Customer() {
     this->ordersList->clear();
     delete this->ordersList;
-    
     customerList.erase(this);
-    std::cout << "[                         Customer DESTR    ]" << std::endl;
 }
 
 void Customer::addOrder(Order* order) {
     this->ordersList->insert(order);
 }
 
-void Customer::getCustOrders() {
+void Customer::getCustomerOrders() {
     std::cout << "======= Customer Orders List ======" << std::endl;
     
     std::set<Order*>::iterator it = this->ordersList->begin();
     
     if ( it == this->ordersList->end() ) {
-        std::cout << "!!! No one ORDER created !!!" << std::endl;
+        std::cout << "No one ORDER created!" << std::endl;
     } else {
         for ( ; it != this->ordersList->end(); it++ ) {
-            // std::cout << "o r d e r : " << (*it)->getName() << std::endl;// show only name
-            std::cout << "order : " << **it << std::endl;// operator<< overloaded
+            std::cout << "order: " << (*it)->getName() << std::endl;
         }
     }
-    
-    std::cout << "===================================" << std::endl;
 }
 
 int Customer::getUnicID() const {
@@ -54,5 +49,4 @@ void Customer::getCustomerList() {
     for ( ; it != customerList.end(); it++ ) {
         std::cout << **it << std::endl;
     }
-    std::cout << "==================================" << std::endl;
 }

@@ -16,7 +16,7 @@ class Category : public ParentClass {
         
         void addItem(Item* item);
         void deleteItem(Item* item);
-        void getItemList();
+        void getCategoryItems();
         
         virtual int getUnicID() const;
         
